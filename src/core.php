@@ -1,8 +1,21 @@
 <?php
 
-/*
+
+/**
  * Core Functions to request at crypto.com API v2
- */
+ *
+ * Core Functions to request at crypto.com API v2
+ *
+ * @category   cryptocoins
+ * @package    cryptocom
+ * @author     Andreas Kasper <andreas.kasper@goo1.de>
+ * @copyright  2021
+ * @license    MIT
+ * @version    Release: 0.1
+ * @link       https://github.com/andreaskasper/php_lib_cryptocom/
+ * @see        /examples
+ * @since      2021-05-12
+ **/
 
 namespace cryptocom;
 
