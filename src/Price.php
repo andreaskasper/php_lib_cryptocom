@@ -20,6 +20,12 @@ class Price {
             case "value": return $this->_amount;
             case "string": return $this->_amount.$this->currency->symbol;
             case "currency": return new Currency($this->_currency);
+            case "tousdt":
+            case "inusdt":
+                if ($this->_currency == "USDT") return $this;
+                $inst = new Instrument($this->_currency."_USDT");
+                $book = Common::book($inst, 1);
+                return new Price((( $book["asks"][0]["price"] + $book["bids"][0]["price"]) / 2) * $this->_amount, "USDT");
         }
         return null;
     }
