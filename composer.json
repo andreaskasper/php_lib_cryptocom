@@ -20,10 +20,17 @@
         }
     ],
     "require": {
-        "php": ">=5.4.0",
+        "php": ">=7.0.0",
         "ext-ctype": "*"
     },
     "require-dev": {
+        "friendsofphp/php-cs-fixer": "*",
+        "phpdocumentor/phpdocumentor": "*",
+        "phpunit/phpunit": "*",
+        "zendframework/zend-serializer": "*",
+        "doctrine/annotations": "*",
+        "zendframework/zend-eventmanager": "*",
+        "zendframework/zend-i18n": "*"
     },
     "suggest": {
         "psr/log": "For optional PSR-3 debug logging"
