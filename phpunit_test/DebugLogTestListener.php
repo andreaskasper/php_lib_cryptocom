@@ -5,7 +5,7 @@
  * PHP version 5.5.
  */
 
-namespace phlibs\Test;
+namespace cryptocom\Test;
 
 class DebugLogTestListener extends \PHPUnit_Framework_BaseTestListener
 {
