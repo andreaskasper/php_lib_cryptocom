@@ -17,9 +17,6 @@
             <directory>./phpunit_test/</directory>
         </testsuite>
     </testsuites>
-    <listeners>
-        <listener class="cryptocom\Test\DebugLogTestListener" />
-    </listeners>
     <groups>
         <exclude>
             <group>languages</group>
