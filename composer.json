@@ -1,5 +1,5 @@
 {
-    "name": "andreaskasper/php_lib_cryptocom",
+    "name": "andreaskasper/cryptocom",
     "type": "library",
     "description": "a php class wrapper for the crypto.com API",
     "version": "0.1.0",
