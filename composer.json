@@ -2,6 +2,7 @@
     "name": "andreaskasper/php_lib_cryptocom",
     "type": "library",
     "description": "a php class wrapper for the crypto.com API",
+    "version": "0.1.0",
     "authors": [
         {
             "name": "Andreas Kasper",
