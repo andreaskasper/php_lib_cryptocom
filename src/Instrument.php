@@ -25,7 +25,7 @@ class Instrument {
     private $_id = null;
 
     public function __construct($id = null, $id2 = null) {
-        if (is_null($id2) AND preg_match("@^[A-Z]+-[A-Z]+$@", $id)) {
+        if (is_null($id2) AND preg_match("@^[A-Z]+_[A-Z]+$@", $id)) {
             $this->_id = $id;
             return;
         }
