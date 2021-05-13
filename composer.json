@@ -13,7 +13,7 @@
             "type": "patreon",
             "url": "https://www.patreon.com/andreaskasper"
         }
-    ]
+    ],
     "require": {
         "php": ">=5.4.0",
         "ext-ctype": "*"
