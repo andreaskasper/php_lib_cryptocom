@@ -29,7 +29,7 @@
         "zendframework/zend-i18n": "2.7.3"
     },
     "suggest": {
-        "psr/log": "For optional PSR-3 debug logging",
+        "psr/log": "For optional PSR-3 debug logging"
     },
     "autoload": {
         "psr-4": {
