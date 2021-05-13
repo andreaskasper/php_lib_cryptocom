@@ -24,13 +24,14 @@
         "ext-ctype": "*"
     },
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "*",
+        "phpunit/phpunit": "^7.5.20 || ^8.5.14 || ^9.5"
+        /*"friendsofphp/php-cs-fixer": "*",
         "phpdocumentor/phpdocumentor": "*",
         "phpunit/phpunit": "*",
         "zendframework/zend-serializer": "*",
         "doctrine/annotations": "*",
         "zendframework/zend-eventmanager": "*",
-        "zendframework/zend-i18n": "*"
+        "zendframework/zend-i18n": "*"*/
     },
     "suggest": {
         "psr/log": "For optional PSR-3 debug logging"
