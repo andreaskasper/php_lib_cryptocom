@@ -7,6 +7,33 @@ Build status: [![Build Status](https://travis-ci.org/andreaskasper/php_lib_crypt
 
 # Features
 
+# Install
+
+## via Composer
+
+composer.json
+```json
+{
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/andreaskasper/php_lib_cryptocom"
+        }
+    ],
+    "require": {
+        "andreaskasper/cryptocom": "*"
+    },
+    "minimum-stability": "dev"
+}
+```
+
+then use composer for example via docker
+
+```console
+foo@bar:~$ docker run -it --rm -v ${PWD}:/app/ composer update
+```
+
+
 # Steps
 - [x] Build a base test image to test this build process (Travis/Docker)
 - [ ] Build tests
