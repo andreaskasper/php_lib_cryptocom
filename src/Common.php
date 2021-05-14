@@ -28,7 +28,9 @@ class Common {
     
     public static function ticker_all() : Array {
         $data = core::request("public/get-ticker", array());
-        return $data["result"]["data"];
+        $out = array();
+        foreach ($data["result"]["data"] as $row) $out[$row["i"]] = $row;
+        return $out;
     }
 
     
