@@ -25,6 +25,11 @@ class Common {
         $data = core::request("private/get-deposit-address", $w, true);
         return $data["result"]["deposit_address_list"] ?? null;
     }
+    
+    public static function ticker_all() : Array {
+        $data = core::request("public/get-ticker", array());
+        return $data["result"]["data"];
+    }
 
     
 
