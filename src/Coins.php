@@ -14,18 +14,14 @@ class Coins {
     }
 
     public function __get($name) {
-        switch($name) {
+        switch(strtolower($name)) {
             case "amount": return $this->_amount;
             case "value": return $this->_amount;
             case "string": return $this->_amount.$this->currency->symbol;
             case "currency": return new Currency($this->_currency);
             case "tousdt":
             case "inusdt":
-                if ($this->_currency == "USDT") return $this;
-                if ($this->amount == 0) return new Coins(0, "USDT");
-                $inst = new Instrument($this->_currency."_USDT");
-                $book = Common::book($inst, 1);
-                return new Coins((( $book["asks"][0]["price"] + $book["bids"][0]["price"]) / 2) * $this->_amount, "USDT");
+                return $this->toUSDT();
         }
         return null;
     }
@@ -39,7 +35,7 @@ class Coins {
         if ($this->_amount == 0) return new Coins(0, "USDT");
         $inst = new Instrument($this->_currency."_USDT");
         $book = Common::book($inst, 1);
-        return new Coins((( $book["asks"][0]["price"] + $book["bids"][0]["price"]) / 2) * $this->_amount, "USDT");
+        return new Coins((( $book["asks"][0]["price"]->amount + $book["bids"][0]["price"]->amount) / 2) * $this->_amount, "USDT");
     }
 
     public function multiply($value) {
