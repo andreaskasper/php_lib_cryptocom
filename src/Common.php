@@ -31,10 +31,30 @@ class Common {
         return $data["result"]["deposit_address_list"] ?? null;
     }
     
-    public static function ticker(Instrument $instrument = null) : Array {
+    public static function ticker(Instrument $instrument) : Array {
         $w = array();
-        if (!is_null($instrument)) $w["instrument_name"] = $instrument->id;
+        $w["instrument_name"] = $instrument->id;
         $data = core::request("public/get-ticker", $w);
+        $out = array();
+        foreach ($data["result"]["data"] as $row) {
+            $inst = new Instrument($row["i"]);
+            return array(
+                "instrument" => $inst,
+                "bid" => new Price($row["b"], $inst->base->id),
+                "ask" => new Price($row["k"], $inst->base->id),
+                "last" => new Price($row["a"], $inst->base->id),
+                "volume" => new Quantity($row["v"], $inst->quote->id),
+                "high" => new Quantity($row["h"], $inst->base->id),
+                "low" => new Quantity($row["l"], $inst->base->id),
+                "change" => new Quantity($row["c"], $inst->base->id),
+                "timestamp" = new \DateTime("@".$row["t"])
+            );
+        }
+        return null;
+    }
+ 
+    public static function ticker_all() : Array {
+        $data = core::request("public/get-ticker", array());
         $out = array();
         foreach ($data["result"]["data"] as $row) {
             $inst = new Instrument($row["i"]);
@@ -50,6 +70,7 @@ class Common {
                 "timestamp" = new \DateTime("@".$row["t"])
             );
         }
+        if (!is_null($instrument)) return $out[$row["i"]];
         return $out;
     }
 
