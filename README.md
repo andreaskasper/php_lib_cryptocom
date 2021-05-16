@@ -42,3 +42,8 @@ foo@bar:~$ docker run -it --rm -v ${PWD}:/app/ composer update
 - [ ] Build tests
 - [ ] Gnomes
 - [ ] Profit
+
+### support the projects :hammer_and_wrench:
+[![donate via Patreon](https://img.shields.io/badge/Donate-Patreon-green.svg)](https://www.patreon.com/AndreasKasper)
+[![donate via PayPal](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/AndreasKasper)
+[![donate via Bitcoin](https://img.shields.io/badge/Bitcoin-35pBJSdu7DJJPyX6Mnz57aQ68uL89yL7ga-brightgreen.png)](bitcoin:35pBJSdu7DJJPyX6Mnz57aQ68uL89yL7ga?label=github-http-honeypot)
