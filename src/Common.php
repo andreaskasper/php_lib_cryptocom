@@ -47,7 +47,7 @@ class Common {
                 "high" => new Quantity($row["h"], $inst->base->id),
                 "low" => new Quantity($row["l"], $inst->base->id),
                 "change" => new Quantity($row["c"], $inst->base->id),
-                "timestamp" = new \DateTime("@".$row["t"])
+                "timestamp" => new \DateTime("@".$row["t"])
             );
         }
         return null;
@@ -67,7 +67,7 @@ class Common {
                 "high" => new Quantity($row["h"], $inst->base->id),
                 "low" => new Quantity($row["l"], $inst->base->id),
                 "change" => new Quantity($row["c"], $inst->base->id),
-                "timestamp" = new \DateTime("@".$row["t"])
+                "timestamp" => new \DateTime("@".$row["t"])
             );
         }
         if (!is_null($instrument)) return $out[$row["i"]];
