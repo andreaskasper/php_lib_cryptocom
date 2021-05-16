@@ -25,7 +25,7 @@ class Currency {
             case "ETH": return "Ξ";
             case "USDT": return "₮";
             case "XRP": return "✕";
-            default: return $this->_currency;
+            default: return $this->_id;
         }
     }
 
