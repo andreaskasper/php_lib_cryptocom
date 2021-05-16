@@ -19,7 +19,7 @@ final class CurrencyTest extends TestCase {
 	public function testcurrencies() {
     $curs = array("BTC", "XRP", "CRO");
     foreach ($curs as $a) {
-      $currency = new Currency($a);
+      $currency = new \cryptocom\Currency($a);
       $this->assertEquals(true, is_string($currency->id));
       $this->assertEquals(true, is_string($currency->string));
     }
