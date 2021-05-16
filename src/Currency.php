@@ -1,5 +1,4 @@
 <?php
-
 namespace cryptocom;
 
 class Currency {
@@ -11,18 +10,22 @@ class Currency {
     }
 
     public function __get($name) {
-        switch ($name) {
+        switch (strtolower($name)) {
             case "id": return $this->_id;
-            case "symbol":
-                switch ($this->_currency) {
-                    case "BCH": return "Ƀ";
-                    case "BTC": return "₿";
-                    case "DOGE": return "Ð";
-                    case "ETH": return "Ξ";
-                    case "USDT": return "₮";
-                    case "XRP": return "✕";
-                    default: return $this->_currency;
-                }
+            case "string": return $this->__string();
+            case "symbol": return $this->symbol();
+        }
+    }
+
+    public function symbol() :string {
+        switch ($this->_currency) {
+            case "BCH": return "Ƀ";
+            case "BTC": return "₿";
+            case "DOGE": return "Ð";
+            case "ETH": return "Ξ";
+            case "USDT": return "₮";
+            case "XRP": return "✕";
+            default: return $this->_currency;
         }
     }
 
