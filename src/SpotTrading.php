@@ -55,6 +55,26 @@ class SpotTrading {
         return new SpotTradingOrder($resp["result"]["order_id"]."");
     }
 
+    public static function create_market_order(Instrument $instrument, $side, mixed $quantity) {
+        if (!in_array($side, array(self::BUY, self::SELL))) throw new \Exception("Unknown Side");
+        $w = array();
+        $w["instrument_name"] = $instrument->id;
+        $w["side"] = [5 => "BUY", 6 => "SELL"][$side];
+        $w["type"] = "MARKET";
+
+        if (is_numeric($quantity)) $q = number_format($quantity, $instrument->quantity_decimals, ".", "");
+        else $q = number_format($quantity->amount, $instrument->quantity_decimals, ".", "");
+
+        if ($w["side"] == "BUY") $w["notional"] = $q;
+        if ($w["side"] == "SELL") $w["quantity"] = $q;
+
+        $resp = core::request("private/create-order", $w, true);
+        if ($resp["code"] == 30008) throw new \Exception("Minimales Investment für ".$w["instrument_name"]." mit ".$w["quantity"]." unterschritten...");
+        if ($resp["code"] != 0) throw new \Exception("Problem mit Order: ".json_encode($resp));
+        //print_r($resp);
+        return new SpotTradingOrder($resp["result"]["order_id"]."");
+    }
+
     public static function open_orders(Instrument $instrument, int $page = null, int $pagesize = null) {
         $out = array();
         $w = array();
